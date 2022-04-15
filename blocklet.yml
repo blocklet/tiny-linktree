@@ -47,5 +47,7 @@ environments: []
 capabilities:
   clusterMode: false
   component: true
-screenshots: []
+screenshots:
+  - 1-preview.png
+  - 2-config.png
 children: []
