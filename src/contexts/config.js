@@ -6,25 +6,33 @@ import Spinner from '@arcblock/ux/lib/Spinner';
 import useAsync from 'react-use/lib/useAsync';
 
 import api from '../libs/api';
+import { useSessionContext } from './session';
 
 const ConfigContext = createContext({});
 const { Provider, Consumer } = ConfigContext;
 
 function ConfigProvider({ children }) {
-  const [config, setConfig] = useState([]);
+  const [config, setConfig] = useState(undefined);
+  const { session } = useSessionContext();
 
   const load = async () => {
     const { data } = await api.get('/api/config');
-    setConfig(data.config);
+    setConfig(data);
     return data;
   };
 
   const update = async (body) => {
-    // eslint-disable-next-line no-console
-    console.log('update', body);
+    body.AVATAR = session.user.avatar;
+    body.NAME = body.NAME || session.user.fullName;
+    body.EMAIL = body.EMAIL || session.user.email;
+
     const { data } = await api.post('/api/config', body);
-    setConfig(data.config);
-    return data;
+    setConfig(data);
+  };
+
+  const publish = async () => {
+    const { data } = await api.post('/api/config', { status: 'published' });
+    setConfig(data);
   };
 
   const state = useAsync(load, []);
@@ -37,7 +45,7 @@ function ConfigProvider({ children }) {
     );
   }
 
-  return <Provider value={{ config, update }}>{children}</Provider>;
+  return <Provider value={{ config, update, publish }}>{children}</Provider>;
 }
 
 ConfigProvider.propTypes = {

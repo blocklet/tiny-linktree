@@ -7,10 +7,16 @@ const router = express.Router();
 const auth = middleware.auth({ roles: ['owner'] });
 const user = middleware.user();
 
-// TODO: add joi schema
-
 router.post('/config', user, auth, async (req, res) => {
-  // TODO: update config
+  const config = await Config.findOne();
+  if (config) {
+    const newConfig = { ...config, ...req.body };
+    await Config.update({ _id: config._id }, { $set: newConfig });
+    return res.json(newConfig);
+  }
+
+  const newConfig = await Config.insert({ ...req.body, status: 'draft' });
+  return res.json(newConfig);
 });
 
 router.get('/config', auth, async (req, res) => {

@@ -6,43 +6,33 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import theme from './libs/theme';
 import { SessionProvider } from './contexts/session';
+import { ConfigProvider } from './contexts/config';
 
 import Home from './components/Home/Home';
+import Config from './components/Config/Config';
 
 library.add(fab, fas, far);
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  a {
-    text-decoration: none !important;
-  }
-  a:hover,
-  a:hover * {
-    text-decoration: none !important;
-  }
-`;
 
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
-          <CssBaseline />
-          <GlobalStyle />
-          <div className="app">
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </div>
+          <ConfigProvider>
+            <CssBaseline />
+            <div className="app">
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/config" element={<Config />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </div>
+          </ConfigProvider>
         </SessionProvider>
       </ThemeProvider>
     </MuiThemeProvider>
