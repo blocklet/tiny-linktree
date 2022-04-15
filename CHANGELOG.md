@@ -1,3 +1,3 @@
-## 0.1.2 (April 11, 2022)
+## 0.1.3 (April 15, 2022)
 
 - chore: initial release
