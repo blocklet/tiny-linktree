@@ -19,7 +19,7 @@ router.post('/config', user, auth, async (req, res) => {
   return res.json(newConfig);
 });
 
-router.get('/config', auth, async (req, res) => {
+router.get('/config', async (req, res) => {
   const config = await Config.findOne();
   res.jsonp(config);
 });

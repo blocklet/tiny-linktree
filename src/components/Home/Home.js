@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable unicorn/filename-case */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -564,6 +564,19 @@ export default function Home() {
           </Sort>
           <div>
             <p className="footer">{config.FOOTER}</p>
+            {session.user && session.user.role === 'owner' && (
+              <small className="footer">
+                <a style={{ marginRight: 16 }} href="/config">
+                  Update Links
+                </a>
+                <a onClick={() => session.logout()}>Logout</a>
+              </small>
+            )}
+            {!session.user && (
+              <small className="footer">
+                <a onClick={() => session.login()}>Connect</a>
+              </small>
+            )}
           </div>
         </div>
       </div>
@@ -571,4 +584,8 @@ export default function Home() {
   );
 }
 
-const Div = styled.div``;
+const Div = styled.div`
+  a {
+    cursor: pointer;
+  }
+`;
