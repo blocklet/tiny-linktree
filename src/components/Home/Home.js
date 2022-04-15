@@ -133,7 +133,7 @@ export default function Home() {
       <div className="row">
         <div className="column" style={{ marginTop: '12%' }}>
           <Avatar src={config.AVATAR} alt={config.NAME} />
-          <h1>{`${config.NAME}`}</h1>
+          <h2>{`${config.NAME}`}</h2>
           <p>{config.BIO}</p>
           <Sort>
             {config.CUSTOM_BUTTON_TEXT && renderCustomButtons()}

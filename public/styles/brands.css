@@ -37,7 +37,7 @@ button {
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  width: 300px;
+  width: 320px;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.1px;
@@ -84,15 +84,7 @@ button {
 /* Facebook Messenger */
 .button.button-facebookmessenger {
   color: #ffffff;
-  background-image: linear-gradient(
-  25deg,
-  #0099ff,
-  #5f5dff,
-  #a033ff,
-  #c740cc,
-  #ff5280,
-  #ff7061
-);
+  background-image: linear-gradient(25deg, #0099ff, #5f5dff, #a033ff, #c740cc, #ff5280, #ff7061);
 }
 
 /* Figma */
@@ -230,7 +222,6 @@ button {
   background-color: #1da1f2;
 }
 
-
 /* Mastodon */
 .button.button-mastodon {
   color: #ffffff;
@@ -248,7 +239,6 @@ button {
   color: #ffffff;
   background-color: #000000;
 }
-
 
 /* Wordpress */
 .button.button-wordpress {
@@ -271,19 +261,19 @@ button {
 /* Buy Me a Coffee */
 .button.button-buymeacoffee {
   color: #000000;
-  background-color: #FFDD00;
+  background-color: #ffdd00;
 }
 
 /* GitLab */
 .button.button-gitlab {
   color: #8c929d;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* Patreon */
 .button.button-patreon {
-  color: #FFFFFF;
-  background-color: #FF424D;
+  color: #ffffff;
+  background-color: #ff424d;
 }
 
 /* Dev.to */
@@ -295,7 +285,7 @@ button {
 /* Paypal */
 .button.button-paypal {
   color: #ffffff;
-  background-color: #1F264F;
+  background-color: #1f264f;
 }
 
 /* Slack */
@@ -311,7 +301,7 @@ button {
   font-weight: 100;
 }
 .button.button-stackoverflow:after {
-  content: "overflow";
+  content: 'overflow';
   font-weight: 700;
 }
 
@@ -330,7 +320,7 @@ button {
 /* Polywork */
 .button.button-polywork {
   color: #fff;
-  background-color: #543DE0;
+  background-color: #543de0;
 }
 
 /* Signal */
@@ -342,7 +332,7 @@ button {
 /* Untappd */
 .button.button-untappd {
   color: #000;
-  background-color: #FFCE0D;
+  background-color: #ffce0d;
 }
 
 /* Instant Gaming */

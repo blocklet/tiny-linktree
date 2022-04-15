@@ -5,8 +5,6 @@ import startCase from 'lodash/startCase';
 import Form from '@rjsf/core';
 import styled from 'styled-components';
 
-import './bootstrap.css';
-
 import { useConfigContext } from '../../contexts/config';
 
 const fields = [
@@ -94,15 +92,15 @@ export default function Config() {
     <Div>
       <Form schema={schema} formData={formData} onChange={(e) => setFormData(e.formData)}>
         <div className="form-actions">
-          <button className="btn btn-default" type="button" onClick={onCancel}>
+          <div className="btn btn-default" onClick={onCancel}>
             Cancel
-          </button>
-          <button className="btn btn-success" type="button" onClick={onPublish}>
+          </div>
+          <div className="btn btn-success" onClick={onPublish}>
             Publish
-          </button>
-          <button className="btn btn-primary" type="button" onClick={onSubmit}>
+          </div>
+          <div className="btn btn-primary" onClick={onSubmit}>
             Save
-          </button>
+          </div>
         </div>
       </Form>
     </Div>
@@ -110,15 +108,22 @@ export default function Config() {
 }
 
 const Div = styled.div`
+  background: #fff;
+  color: #555;
   padding: 24px;
+
+  .control-label {
+    font-size: 16px;
+    font-weight: 500;
+  }
 
   .form-actions {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
-    button {
-      margin-left: 16px;
+    .btn {
+      margin-right: 16px;
     }
   }
 `;

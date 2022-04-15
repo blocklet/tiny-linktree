@@ -5,7 +5,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -24,7 +24,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
           <ConfigProvider>
-            <CssBaseline />
             <div className="app">
               <Routes>
                 <Route exact path="/" element={<Home />} />

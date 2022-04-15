@@ -29,20 +29,18 @@ function Button(props) {
   };
 
   return (
-    <>
-      <a
-        className={styles ? 'button' : `button button-${name}`}
-        href={href}
-        target={config?.BUTTON_TARGET || '_blank'}
-        rel="noopener noreferrer"
-        onClick={handleClick}
-        style={styles}
-        title={alt || displayName}>
-        {logo && <img className="icon" src={logo} alt={`${displayName} logo`} />}
-        {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
-        {displayName}
-      </a>
-    </>
+    <a
+      className={styles ? 'button' : `button button-${name}`}
+      href={href}
+      target={config?.BUTTON_TARGET || '_blank'}
+      rel="noopener noreferrer"
+      onClick={handleClick}
+      style={styles}
+      title={alt || displayName}>
+      {logo && <img className="icon" src={logo} alt={`${displayName} logo`} />}
+      {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
+      {displayName}
+    </a>
   );
 }
 
