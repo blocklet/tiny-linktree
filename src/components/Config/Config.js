@@ -12,8 +12,8 @@ export default function Config() {
   const [formData, setFormData] = useState(config || {});
 
   const schema = {
-    title: 'Tiny Linktree Config',
-    description: 'Customize your linktree page',
+    title: 'Tiny LinkHub Config',
+    description: 'Customize your LinkHub page',
     type: 'object',
     properties: fields.reduce((acc, field) => {
       acc[field] = { type: 'string', title: startCase(field.toLowerCase()), default: get(config, field, '') };
@@ -35,7 +35,7 @@ export default function Config() {
           <div className="btn btn-primary" onClick={onSubmit}>
             Save
           </div>
-          {config.status === 'draft' && (
+          {get(config, 'status') === 'draft' && (
             <div className="btn btn-success" onClick={onPublish}>
               Publish
             </div>

@@ -1,6 +1,6 @@
-# Tiny LinkTree
+# Tiny LinkHub
 
-A linktree clone blocklet that can host all your links.
+A linktree clone that can host all your links.
 
 ## How to Use?
 

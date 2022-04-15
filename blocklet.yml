@@ -1,6 +1,6 @@
 name: tiny-linktree
 version: 0.1.4
-title: Tiny LinkTree
+title: Tiny LinkHub
 description: A linktree clone that hosts all your links
 keywords:
   - social
@@ -14,10 +14,10 @@ repository:
   type: git
   url: 'git+https://github.com/blocklet/tiny-linktree.git'
 specVersion: 1.2.4
-logo: logo.png
+logo: logo.jpeg
 files:
   - build
-  - logo.png
+  - logo.jpeg
   - README.md
   - blocklet.md
   - screenshots

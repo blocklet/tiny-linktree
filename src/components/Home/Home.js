@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Avatar from '../Avatar/Avatar';
@@ -71,7 +70,13 @@ export default function Home() {
   if (!config || config.status !== 'published') {
     return (
       <Div className="container">
-        <Link to="/config">Config My Linktree</Link>
+        <div className="row">
+          <div className="column" style={{ marginTop: '12%' }}>
+            <a className="button" href="/config" rel="noopener noreferrer">
+              Config
+            </a>
+          </div>
+        </div>
       </Div>
     );
   }
