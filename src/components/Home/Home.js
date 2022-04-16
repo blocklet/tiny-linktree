@@ -2,6 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
@@ -72,9 +73,9 @@ export default function Home() {
       <Div className="container">
         <div className="row">
           <div className="column" style={{ marginTop: '12%' }}>
-            <a className="button" href="/config" rel="noopener noreferrer">
+            <Link className="button" to="/config" rel="noopener noreferrer">
               Config
-            </a>
+            </Link>
           </div>
         </div>
       </Div>
@@ -571,9 +572,9 @@ export default function Home() {
             <p className="footer">{config.FOOTER}</p>
             {session.user && session.user.role === 'owner' && (
               <small className="footer">
-                <a style={{ marginRight: 16 }} href="/config">
+                <Link style={{ marginRight: 16 }} to="/config">
                   Update Links
-                </a>
+                </Link>
                 <a onClick={() => session.logout()}>Logout</a>
               </small>
             )}

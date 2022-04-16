@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import startCase from 'lodash/startCase';
 import Form from '@rjsf/core';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { useConfigContext } from '../../contexts/config';
 
@@ -23,15 +24,14 @@ export default function Config() {
 
   const onSubmit = () => update(formData);
   const onPublish = () => publish();
-  const onCancel = () => (window.location.href = '/'); // eslint-disable-line
 
   return (
     <Div>
       <Form schema={schema} formData={formData} onChange={(e) => setFormData(e.formData)}>
         <div className="form-actions">
-          <div className="btn btn-default" onClick={onCancel}>
+          <Link className="btn btn-default" to="/">
             Preview
-          </div>
+          </Link>
           <div className="btn btn-primary" onClick={onSubmit}>
             Save
           </div>
