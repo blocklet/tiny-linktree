@@ -1,3 +1,7 @@
+## 0.1.6 (April 16, 2022)
+
+- fix: can not work when mounted as child
+
 ## 0.1.5 (April 16, 2022)
 
 - fix: logo and initial workflow
