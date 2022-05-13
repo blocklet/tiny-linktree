@@ -128,7 +128,6 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -1542,4 +1541,8 @@ input[type='button'].btn-block {
   .hidden-print {
     display: none !important;
   }
+}
+.MuiButtonBase-root {
+  width: auto;
+  height: auto;
 }

@@ -39,9 +39,10 @@
     ]
   },
   "dependencies": {
-    "@arcblock/did-connect": "^1.17.3",
-    "@arcblock/ux": "^1.17.3",
-    "@blocklet/sdk": "^1.7.7",
+    "@arcblock/did-connect": "^1.17.20",
+    "@arcblock/ux": "^1.17.20",
+    "@blocklet/sdk": "^1.7.14",
+    "@blocklet/ui-react": "^1.17.20",
     "@craco/craco": "^6.4.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",

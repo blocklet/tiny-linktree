@@ -569,18 +569,12 @@ export default function Home() {
             )}
           </Sort>
           <div>
-            <p className="footer">{config.FOOTER}</p>
+            {!!config.FOOTER && <p className="footer">{config.FOOTER}</p>}
             {session.user && session.user.role === 'owner' && (
               <small className="footer">
                 <Link style={{ marginRight: 16 }} to="/config">
                   Update Links
                 </Link>
-                <a onClick={() => session.logout()}>Logout</a>
-              </small>
-            )}
-            {!session.user && (
-              <small className="footer">
-                <a onClick={() => session.login()}>Connect</a>
               </small>
             )}
           </div>

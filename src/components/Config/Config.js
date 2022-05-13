@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import get from 'lodash/get';
 import startCase from 'lodash/startCase';
 import Form from '@rjsf/core';
@@ -11,9 +11,16 @@ import { useConfigContext } from '../../contexts/config';
 export default function Config() {
   const { config, fields, update, publish } = useConfigContext();
   const [formData, setFormData] = useState(config || {});
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (message) {
+      setTimeout(() => setMessage(''), 3000);
+    }
+  }, [message]);
 
   const schema = {
-    title: 'Tiny LinkHub Config',
+    // title: 'Tiny LinkHub Config',
     description: 'Customize your LinkHub page',
     type: 'object',
     properties: fields.reduce((acc, field) => {
@@ -22,16 +29,27 @@ export default function Config() {
     }, {}),
   };
 
-  const onSubmit = () => update(formData);
-  const onPublish = () => publish();
+  const onSubmit = async () => {
+    try {
+      await update(formData);
+      setMessage('Config updated successfully');
+    } catch (err) {
+      setMessage(err.message);
+    }
+  };
+  const onPublish = async () => {
+    try {
+      await publish();
+      setMessage('Config published successfully');
+    } catch (err) {
+      setMessage(err.message);
+    }
+  };
 
   return (
     <Div>
       <Form schema={schema} formData={formData} onChange={(e) => setFormData(e.formData)}>
         <div className="form-actions">
-          <Link className="btn btn-default" to="/">
-            Preview
-          </Link>
           <div className="btn btn-primary" onClick={onSubmit}>
             Save
           </div>
@@ -40,6 +58,10 @@ export default function Config() {
               Publish
             </div>
           )}
+          <Link className="btn btn-default" to="/">
+            Preview
+          </Link>
+          {!!message && <span className="alert alert-info">{message}</span>}
         </div>
       </Form>
     </Div>

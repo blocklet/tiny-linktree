@@ -5,6 +5,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
+import Header from '@blocklet/ui-react/lib/Header';
 import { MuiThemeProvider } from '@material-ui/core';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -25,6 +26,7 @@ function App() {
         <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
           <ConfigProvider>
             <div className="app">
+              <Header style={{ background: 'transparent' }} />
               <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/config" element={<Config />} />
