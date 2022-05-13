@@ -1,3 +1,7 @@
+## 0.2.1 (May 13, 2022)
+
+- chore: enable navigation
+
 ## 0.2.0 (May 13, 2022)
 
 - feat: use header from blocklet-ui
