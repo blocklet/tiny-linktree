@@ -6,8 +6,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 import Header from '@blocklet/ui-react/lib/Header';
-import { MuiThemeProvider } from '@material-ui/core';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import theme from './libs/theme';
@@ -21,22 +21,24 @@ library.add(fab, fas, far);
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
+    <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
-          <ConfigProvider>
-            <div className="app">
-              <Header style={{ background: 'transparent' }} />
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/config" element={<Config />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-            </div>
-          </ConfigProvider>
-        </SessionProvider>
+        <StyledThemeProvider theme={theme}>
+          <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
+            <ConfigProvider>
+              <div className="app">
+                <Header style={{ background: 'transparent' }} />
+                <Routes>
+                  <Route exact path="/" element={<Home />} />
+                  <Route exact path="/config" element={<Config />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </div>
+            </ConfigProvider>
+          </SessionProvider>
+        </StyledThemeProvider>
       </ThemeProvider>
-    </MuiThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
