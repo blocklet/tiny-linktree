@@ -1,3 +1,8 @@
+## 0.2.0 (May 13, 2022)
+
+- feat: use header from blocklet-ui
+- fix: bunch of ui/ux issues
+
 ## 0.1.6 (April 16, 2022)
 
 - fix: can not work when mounted as child
